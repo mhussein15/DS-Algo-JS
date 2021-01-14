@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "operator-overloading": "^0.5.1",
+    "prompt-sync": "^4.2.0"
+  }
+}
