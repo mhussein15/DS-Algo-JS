@@ -21,12 +21,12 @@ class Stack {
   }
 
   peek() {
-    return this.isEmpty() ? "Sorry buddy, nothing here" : this.top.data;
+    return this.isEmpty() ? "Nothing Here" : this.top.data;
   }
 
   push(data) {
     if (this.isFull()) {
-      console.log("Eww, the stack is full. Go away!");
+      console.log("Stack is Full");
     } else {
       const newNode = new Node(data, this.top);
       this.top = newNode;
@@ -36,7 +36,7 @@ class Stack {
 
   pop() {
     if (this.isEmpty()) {
-      console.log("What else do you wanna take from me? I have nothing left!");
+      console.log("Stack is Empty");
     } else {
       const popped = this.top;
       this.top = popped.next;
@@ -53,7 +53,7 @@ class Card {
   }
 }
 
-const arrColor = ["red", "blue", "green", "yellow"];
+const arrColor = ["Red", "Blue", "Green", "Yellow"];
 const deck = new Stack(20);
 const player1 = new Stack(5);
 const player2 = new Stack(5);
@@ -69,27 +69,28 @@ while (deck.length !== deck.limit) {
   );
 }
 
-
 //Player One Cards
-console.log("Player One Cards")
+console.log("Player One Cards");
 
 while (player1.length !== player1.limit) {
   player1.push(deck.peek());
-  console.log(deck.peek());
+  console.log(deck.peek().color, deck.peek().number);
   deck.pop();
 }
+console.log("----------------------------------");
 
 //Player Two Cards
-console.log("Player Two Cards")
+console.log("Player Two Cards");
 
 while (player2.length !== player2.limit) {
   player2.push(deck.peek());
-  console.log(deck.peek());
+  console.log(deck.peek().color, deck.peek().number);
   deck.pop();
 }
-
+console.log("----------------------------------");
 
 //Top of Deck
-console.log("Top Tof the Deck")
+console.log("Top Top the Deck");
 
-console.log(deck.peek())
+console.log(deck.peek().color, deck.peek().number);
+console.log("----------------------------------");
