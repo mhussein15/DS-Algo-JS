@@ -59,6 +59,7 @@ const player1 = new Stack(5);
 const player2 = new Stack(5);
 let deckCounter = 0;
 
+//Add Random CARDS to DECK
 while (deck.length !== deck.limit) {
   deck.push(
     new Card(
@@ -67,17 +68,28 @@ while (deck.length !== deck.limit) {
     )
   );
 }
+
+
+//Player One Cards
 console.log("Player One Cards")
+
 while (player1.length !== player1.limit) {
   player1.push(deck.peek());
   console.log(deck.peek());
   deck.pop();
 }
+
+//Player Two Cards
 console.log("Player Two Cards")
+
 while (player2.length !== player2.limit) {
   player2.push(deck.peek());
   console.log(deck.peek());
   deck.pop();
 }
+
+
+//Top of Deck
 console.log("Top Tof the Deck")
+
 console.log(deck.peek())
