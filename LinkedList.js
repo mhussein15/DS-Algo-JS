@@ -76,7 +76,7 @@ class LinkedList {
         current = current.next;
       }
       //Adds a node after the current node with current age + 1
-      //1 -> 3 becomes 1 -> 2
+      //1 -> 3 becomes 1 -> 2 -> 3
       //AND sets the current to head so we could loop over again and check the linked list
       else {
         let highlight = prompt(
