@@ -59,6 +59,7 @@ class LinkedList {
   addYear(age) {
     let current = this.head;
     //Keeps looping over the linked list untill all ages are in ascending order starting from 1
+    if(this.tail  === null || age > this.tail.data.age){ 
     while (age !== this.size) {
       //Adds Node with age 1 and sets at as the head
       if (this.head === null || this.head.data.age !== 1) {
@@ -90,10 +91,11 @@ class LinkedList {
       }
     }
   }
+  }
 }
 const list = new LinkedList();
-list.add(new Year(2, " I was two"));
-list.add(new Year(3, " I started walking"));
-list.add(new Year(7, " I turned seven"));
-list.addYear(9);
+list.add(new Year(1, " I was two"));
+list.add(new Year(4, " I started walking"));
+list.add(new Year(13, " I turned seven"));
+list.addYear(12);
 list.display();
