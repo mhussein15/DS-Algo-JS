@@ -1,6 +1,5 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
-
 class Year {
   constructor(age, highlight) {
     this.age = age;
@@ -58,9 +57,21 @@ class LinkedList {
 
   addYear(age) {
     let current = this.head;
+    let ageCounter;
+
+    //Checks if the tail age is NULL or less than arg age
+    //if true assigns ageCounter to age
+    if (this.tail === null || age > this.tail.data.age) {
+      ageCounter = age;
+    }
+    //Checks if the tail age is greater than arg age
+    //if true assigns tail age to ageCounter
+    else if (age < this.tail.data.age) {
+      ageCounter = this.tail.data.age;
+    }
+
     //Keeps looping over the linked list untill all ages are in ascending order starting from 1
-    if(this.tail  === null || age > this.tail.data.age){ 
-    while (age !== this.size) {
+    while (ageCounter !== this.size) {
       //Adds Node with age 1 and sets at as the head
       if (this.head === null || this.head.data.age !== 1) {
         let highlight = prompt(`What was the highlight for age 1?`);
@@ -91,11 +102,8 @@ class LinkedList {
       }
     }
   }
-  }
 }
 const list = new LinkedList();
-list.add(new Year(1, " I was two"));
-list.add(new Year(4, " I started walking"));
-list.add(new Year(7, " I turned seven"));
+
 list.addYear(10);
 list.display();
