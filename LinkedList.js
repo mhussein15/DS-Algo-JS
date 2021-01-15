@@ -96,6 +96,6 @@ class LinkedList {
 const list = new LinkedList();
 list.add(new Year(1, " I was two"));
 list.add(new Year(4, " I started walking"));
-list.add(new Year(13, " I turned seven"));
-list.addYear(12);
+list.add(new Year(7, " I turned seven"));
+list.addYear(10);
 list.display();
