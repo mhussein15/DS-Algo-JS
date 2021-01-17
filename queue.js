@@ -38,30 +38,27 @@ class Queue {
     } else {
       if (data > 12) {
         let numberOfPeople = data;
+
+        
         while (numberOfPeople > 12) {
           if (!this.isFull()) {
             const newNode = new Node(new Group(12));
-            if (this.isEmpty()) {
-              this._enqueueIfEmpty(newNode);
-            } else {
-              this._enqueueIfNotEmpty(newNode);
-            }
+            (this.isEmpty()?this._enqueueIfEmpty(newNode):this._enqueueIfNotEmpty(newNode))
             numberOfPeople -= 12;
             this.length++;
           }
         }
+
         if (!this.isFull()) {
           const newNode = new Node(new Group(numberOfPeople));
           this._enqueueIfNotEmpty(newNode);
           this.length++;
         }
+
+
       } else {
         const newNode = new Node(new Group(data));
-        if (this.isEmpty()) {
-          this._enqueueIfEmpty(newNode);
-        } else {
-          this._enqueueIfNotEmpty(newNode);
-        }
+        (this.isEmpty()?this._enqueueIfEmpty(newNode):this._enqueueIfNotEmpty(newNode))
         this.length++;
       }
     }
@@ -109,9 +106,9 @@ RollCoaster.enqueue(7);
 RollCoaster.enqueue(25);
 RollCoaster.enqueue(2);
 
-// while (!RollCoaster.isEmpty()) {
-//   console.log(RollCoaster.peek());
-//   RollCoaster.dequeue();
-// }
+while (!RollCoaster.isEmpty()) {
+  console.log(RollCoaster.peek());
+  RollCoaster.dequeue();
+}
 
 console.log(RollCoaster.getTimeForQueue());
