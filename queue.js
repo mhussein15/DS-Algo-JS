@@ -17,7 +17,7 @@ class Queue {
     this.back = null;
     this.length = 0;
     this.limit = limit;
-    this.numberOfPeople = 1;
+    this.numberOfPeople = 0;
   }
 
   isFull() {
@@ -50,7 +50,7 @@ class Queue {
             this.length++;
           }
         }
-        if (!this.isFull) {
+        if (!this.isFull()) {
           const newNode = new Node(new Group(numberOfPeople));
           this._enqueueIfNotEmpty(newNode);
           this.length++;
@@ -86,7 +86,7 @@ class Queue {
   }
 
   getTimeForQueue() {
-    return (this.numberOfPeople * 30) / 60;
+    return this.numberOfPeople / 2;
   }
 
   _enqueueIfEmpty(newNode) {
@@ -106,12 +106,12 @@ const RollCoaster = new Queue();
 
 RollCoaster.enqueue(6);
 RollCoaster.enqueue(7);
-RollCoaster.enqueue(7);
 RollCoaster.enqueue(25);
+RollCoaster.enqueue(2);
 
-while (!RollCoaster.isEmpty()) {
-  console.log(RollCoaster.peek());
-  RollCoaster.dequeue();
-}
+// while (!RollCoaster.isEmpty()) {
+//   console.log(RollCoaster.peek());
+//   RollCoaster.dequeue();
+// }
 
 console.log(RollCoaster.getTimeForQueue());
