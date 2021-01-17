@@ -39,18 +39,22 @@ class Queue {
       if (data > 12) {
         let numberOfPeople = data;
         while (numberOfPeople > 12) {
-          const newNode = new Node(new Group(12));
-          if (this.isEmpty()) {
-            this._enqueueIfEmpty(newNode);
-          } else {
-            this._enqueueIfNotEmpty(newNode);
+          if (!this.isFull()) {
+            const newNode = new Node(new Group(12));
+            if (this.isEmpty()) {
+              this._enqueueIfEmpty(newNode);
+            } else {
+              this._enqueueIfNotEmpty(newNode);
+            }
+            numberOfPeople -= 12;
+            this.length++;
           }
-          numberOfPeople -= 12;
+        }
+        if (!this.isFull) {
+          const newNode = new Node(new Group(numberOfPeople));
+          this._enqueueIfNotEmpty(newNode);
           this.length++;
         }
-        const newNode = new Node(new Group(numberOfPeople));
-        this._enqueueIfNotEmpty(newNode);
-        this.length++;
       } else {
         const newNode = new Node(new Group(data));
         if (this.isEmpty()) {
@@ -102,7 +106,7 @@ const RollCoaster = new Queue();
 
 RollCoaster.enqueue(6);
 RollCoaster.enqueue(7);
-RollCoaster.enqueue(8);
+RollCoaster.enqueue(7);
 RollCoaster.enqueue(25);
 
 while (!RollCoaster.isEmpty()) {
@@ -110,5 +114,4 @@ while (!RollCoaster.isEmpty()) {
   RollCoaster.dequeue();
 }
 
-
-console.log(RollCoaster.getTimeForQueue())
+console.log(RollCoaster.getTimeForQueue());
