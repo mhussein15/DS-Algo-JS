@@ -20,7 +20,7 @@ class TreeNode {
   // secondName eg. Mohammad Osama Hussein secondName will be Osama,name will be Mohammad
 
   //This function uses Depth-first search to search for the right names and create new Node if found
-  //The function will start searching from the root -> left node -> right node
+  //The function will start searching from the root -> left node -> right node and the same thing as it visits each leaf of the tree
   add(current, name, secondName) {
     //Check if the node thats current is pointing to has the same name of the familyName provided by the function
     if (current.name.toLowerCase() === secondName.toLowerCase()) {
