@@ -1,4 +1,3 @@
-const { add } = require("lodash");
 
 const prompt = require("prompt-sync")({ sigint: true });
 
